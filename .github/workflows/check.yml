@@ -19,6 +19,8 @@ jobs:
           terraform validate
           terraform fmt -check
       - name: Validate Examples
+        env:
+          AWS_REGION: 'eu-west-1'
         run: |
           for example in $(find examples -maxdepth 1 -mindepth 1 -type d); do
             cd $example
